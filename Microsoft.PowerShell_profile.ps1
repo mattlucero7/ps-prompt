@@ -26,17 +26,21 @@ function prompt {
                 $branchName = git -C $gitDir rev-parse --abbrev-ref HEAD
                 $gitBranch = "($branchName) "
 
-                # Check Git status
-                git -C $gitDir diff --quiet
-                if ($LASTEXITCODE -eq 0) {
-                    $gitStatus = "`e[1;34m✓`e[0m"
+                # Check Git status (more comprehensively)
+                $gitPorcelainStatus = git -C $gitDir status --porcelain
+                if ($gitPorcelainStatus -eq "") {
+                    # Repository is clean (no staged, unstaged, or untracked files)
+                    $gitStatus = "`e[1;32m✓`e[0m" # Green check for clean
                 }
                 else {
-                    $gitStatus = "`e[1;33m✗`e[0m"
+                    # Repository has changes
+                    $gitStatus = "`e[1;33m✗`e[0m" # Yellow cross for dirty
                 }
             }
             catch {
-                $gitBranch = "`e[1;31m[No branch]"
+                # Refined error message
+                $gitBranch = "`e[1;31m[Git Error]`e[0m"
+                $gitStatus = ""
             }
             break
         }
