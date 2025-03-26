@@ -14,9 +14,10 @@ This repository contains a custom PowerShell prompt script designed to ✨enhanc
 
 <img src="images/vscode-insiders.webp" width=60% height=60%>
 
-### **Prompt in a Git Repository (.venv does not exist)**:
+### **Prompt in a Git Repository (when .venv does not exist)**:
    
 <img src="images/no-venv.webp" width=60% height=60%>
+<img src="images/no-venv2.webp" width=60% height=60%>
 
 ### **Default Prompt 🦗 (Outside of VSCode Projects)**:
    
