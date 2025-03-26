@@ -1,4 +1,4 @@
-# PowerShell Prompt
+# Customized PowerShell Prompt
 
 This repository contains a custom PowerShell prompt script designed to enhance your terminal experience, especially when working in Visual Studio Code (VSCode).
 
@@ -9,16 +9,18 @@ This repository contains a custom PowerShell prompt script designed to enhance y
 - **VSCode Detection**: Automatically adjusts the prompt for VSCode environments.
 
 ### **Prompt with Virtual Environment**:
-   
+
+<img src="images/sample.webp" width=60% height=60%>
+
 <img src="images/vscode-insiders.webp" width=60% height=60%>
 
-### **Default Prompt**:
-   
-<img src="images/ps.webp" width=60% height=60%>
-
-### **Prompt in a Git Repository (no .venv)**:
+### **Prompt in a Git Repository (.venv does not exist)**:
    
 <img src="images/no-venv.webp" width=60% height=60%>
+
+### **Default Prompt (Outside of VSCode Projects)**:
+   
+<img src="images/ps.webp" width=60% height=60%>
 
 ## Installation
 
@@ -41,16 +43,8 @@ This repository contains a custom PowerShell prompt script designed to enhance y
 - If you're in a Git repository, the prompt will display the current branch and status.
 - Activate a virtual environment to see its name reflected in the prompt.
 
-## Example Prompt
-
-```plaintext
-📂 C:\Projects\MyRepo (venv) (main) ✓
-```
-
-- `📂`: Current directory
-- `(venv)`: Active virtual environment
-- `(main)`: Current Git branch
-- `✓`: Clean Git status
+## Learn More
+I don't take all of the credit for this script. A lot of it I learned by visiting the [PowerShell documentation](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup). 🙂
 
 ## Contributing
 
