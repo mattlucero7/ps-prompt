@@ -1,6 +1,6 @@
-# PowerShell Prompt
+# Matteoo7 PowerShell Prompt
 
-This repository contains a custom PowerShell prompt script designed to enhance your terminal experience, especially when working in Visual Studio Code (VSCode).
+This repository contains a custom PowerShell prompt script designed to ✨enhance✨ your terminal experience, especially when working in Visual Studio Code (VSCode or VSCode Insiders).
 
 ## Features
 
@@ -9,16 +9,18 @@ This repository contains a custom PowerShell prompt script designed to enhance y
 - **VSCode Detection**: Automatically adjusts the prompt for VSCode environments.
 
 ### **Prompt with Virtual Environment**:
-   
+
+<img src="images/sample.webp" width=60% height=60%>
+
 <img src="images/vscode-insiders.webp" width=60% height=60%>
 
-### **Default Prompt**:
-   
-<img src="images/ps.webp" width=60% height=60%>
-
-### **Prompt in a Git Repository (no .venv)**:
+### **Prompt in a Git Repository (.venv does not exist)**:
    
 <img src="images/no-venv.webp" width=60% height=60%>
+
+### **Default Prompt 🦗 (Outside of VSCode Projects)**:
+   
+<img src="images/ps.webp" width=60% height=60%>
 
 ## Installation
 
@@ -41,16 +43,10 @@ This repository contains a custom PowerShell prompt script designed to enhance y
 - If you're in a Git repository, the prompt will display the current branch and status.
 - Activate a virtual environment to see its name reflected in the prompt.
 
-## Example Prompt
+## Learn More
+I don't take all of the credit for this script. I was inspired by the [Oh-My-Zsh Project](https://github.com/ohmyzsh/ohmyzsh) particularly the [robbyrussel theme](https://github.com/ohmyzsh/wiki/blob/main/Themes.md). I learned a lot of converting most of the style to `💻PS >_` by visiting the [PowerShell documentation](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup). 🙂
 
-```plaintext
-📂 C:\Projects\MyRepo (venv) (main) ✓
-```
-
-- `📂`: Current directory
-- `(venv)`: Active virtual environment
-- `(main)`: Current Git branch
-- `✓`: Clean Git status
+And no, I didn't want to use `Oh-My-Posh` as it was a fairly easy script. I already use `Oh-My-Zsh` for my WSL and I don't themes for my Ubuntu machine.
 
 ## Contributing
 
