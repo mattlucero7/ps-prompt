@@ -1,6 +1,6 @@
-# Customized PowerShell Prompt
+# Matteoo7 PowerShell Prompt
 
-This repository contains a custom PowerShell prompt script designed to enhance your terminal experience, especially when working in Visual Studio Code (VSCode).
+This repository contains a custom PowerShell prompt script designed to ✨enhance✨ your terminal experience, especially when working in Visual Studio Code (VSCode or VSCode Insiders).
 
 ## Features
 
@@ -18,7 +18,7 @@ This repository contains a custom PowerShell prompt script designed to enhance y
    
 <img src="images/no-venv.webp" width=60% height=60%>
 
-### **Default Prompt (Outside of VSCode Projects)**:
+### **Default Prompt 🦗 (Outside of VSCode Projects)**:
    
 <img src="images/ps.webp" width=60% height=60%>
 
@@ -44,7 +44,9 @@ This repository contains a custom PowerShell prompt script designed to enhance y
 - Activate a virtual environment to see its name reflected in the prompt.
 
 ## Learn More
-I don't take all of the credit for this script. A lot of it I learned by visiting the [PowerShell documentation](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup). 🙂
+I don't take all of the credit for this script. I was inspired by the [Oh-My-Zsh Project](https://github.com/ohmyzsh/ohmyzsh) particularly the [robbyrussel theme](https://github.com/ohmyzsh/wiki/blob/main/Themes.md). I learned a lot of converting most of the style to `💻PS >_` by visiting the [PowerShell documentation](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup). 🙂
+
+And no, I didn't want to use `Oh-My-Posh` as it was a fairly easy script. I already use `Oh-My-Zsh` for my WSL and I don't themes for my Ubuntu machine.
 
 ## Contributing
 
