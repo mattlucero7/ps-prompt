@@ -17,25 +17,30 @@ function prompt {
         $venv = "($venvName) "
     }
 
-    # Check if the current directory is a Git repository
-    if (Test-Path ".git") {
-        try {
-            # Get the current Git branch name
-            $branchName = git rev-parse --abbrev-ref HEAD
-            $gitBranch = "($branchName) "
-            
-            # Check Git status
-            git diff --quiet
-            if ($LASTEXITCODE -eq 0) {
-                $gitStatus = "`e[1;34m✓`e[0m"
+    # Check if the current directory or any parent directory is a Git repository
+    $gitDir = $currentDirectory
+    while ($gitDir -ne (Get-Item $gitDir).Parent.FullName) {
+        if (Test-Path (Join-Path $gitDir ".git")) {
+            try {
+                # Get the current Git branch name
+                $branchName = git -C $gitDir rev-parse --abbrev-ref HEAD
+                $gitBranch = "($branchName) "
+
+                # Check Git status
+                git -C $gitDir diff --quiet
+                if ($LASTEXITCODE -eq 0) {
+                    $gitStatus = "`e[1;34m✓`e[0m"
+                }
+                else {
+                    $gitStatus = "`e[1;33m✗`e[0m"
+                }
             }
-            else {
-                $gitStatus = "`e[1;33m✗`e[0m"
+            catch {
+                $gitBranch = "`e[1;31m[No branch]"
             }
+            break
         }
-        catch {
-            $gitBranch = "`e[1;31m[No branch]"
-        }
+        $gitDir = (Get-Item $gitDir).Parent.FullName
     }
 
     # Display the prompt with details
