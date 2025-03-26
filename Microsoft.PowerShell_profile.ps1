@@ -28,7 +28,9 @@ function prompt {
 
                 # Check Git status (more comprehensively)
                 $gitPorcelainStatus = git -C $gitDir status --porcelain
-                if ($gitPorcelainStatus -eq "") {
+                
+                # $null works for both empty string and null value!! not ""
+                if ($gitPorcelainStatus -eq $null) {
                     # Repository is clean (no staged, unstaged, or untracked files)
                     $gitStatus = "`e[1;32m✓`e[0m" # Green check for clean
                 }
