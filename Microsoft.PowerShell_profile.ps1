@@ -52,7 +52,7 @@ function prompt {
     # ---- Display the prompt with details ----
 
     if ($venv -ne "") {
-        Write-Host "⟦π⟧ " -NoNewline -ForegroundColor Magenta # in virtual env
+        Write-Host "venv " -NoNewline -ForegroundColor Magenta # in virtual env
     } else {
         Write-Host "📂 " -NoNewline # not in virtual env
     }
