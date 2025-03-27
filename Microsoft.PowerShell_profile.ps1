@@ -58,5 +58,5 @@ function prompt {
         Write-Host "$gitStatus " -NoNewline -ForegroundColor Cyan
     }
 
-    return ""  # Return a space to ensure there's something after the prompt
+    return ""
 }
