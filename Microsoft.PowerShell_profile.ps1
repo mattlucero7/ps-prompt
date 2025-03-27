@@ -49,12 +49,16 @@ function prompt {
         $gitDir = (Get-Item $gitDir).Parent.FullName
     }
 
-    # Display the prompt with details
-    Write-Host "📂 $(Convert-Path $currentDirectory) " -NoNewline -ForegroundColor Green
+    # ---- Display the prompt with details ----
+
     if ($venv -ne "") {
-        Write-Host ""
-        Write-Host "$venv" -NoNewline -ForegroundColor Magenta
+        Write-Host "⟦π⟧ " -NoNewline -ForegroundColor Magenta # in virtual env
+    } else {
+        Write-Host "📂 " -NoNewline # not in virtual env
     }
+
+    Write-Host "$(Convert-Path $currentDirectory) " -NoNewline -ForegroundColor Yellow
+
     if ($gitBranch -ne "") {
         Write-Host "$gitBranch" -NoNewline -ForegroundColor Cyan
     }
