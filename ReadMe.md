@@ -1,4 +1,4 @@
-# Matteoo7 PowerShell Prompt
+# Matt PowerShell Prompt
 
 This repository contains a custom PowerShell prompt script designed to ✨enhance✨ your terminal experience, especially when working in Visual Studio Code (VSCode or VSCode Insiders).
 
@@ -10,14 +10,16 @@ This repository contains a custom PowerShell prompt script designed to ✨enhanc
 
 ### **Prompt with Virtual Environment**:
 
-<img src="images/sample.webp" width=60% height=60%>
-
-<img src="images/vscode-insiders.webp" width=60% height=60%>
+<img src="images/venv.webp" width=75% height=75%>
 
 ### **Prompt in a Git Repository (when .venv does not exist)**:
-   
+
+<img src="images/venv-git.webp" width=75% height=75%>
 <img src="images/no-venv.webp" width=60% height=60%>
-<img src="images/no-venv2.webp" width=60% height=60%>
+
+### **Default Prompt (Inside VSCode)**:
+   
+<img src="images/raw.webp" width=75% height=75%>
 
 ### **Default Prompt 🦗 (Outside of VSCode Projects)**:
    
