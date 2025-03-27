@@ -16,7 +16,6 @@ function prompt {
         $venv = "($venvName) "
     }
 
-    # Safely check for Git repository
     try {
         $gitDir = $currentDirectory
         while ($gitDir -ne $null -and (Test-Path $gitDir) -and ($gitDir -ne (Split-Path $gitDir -Parent))) {
@@ -41,7 +40,7 @@ function prompt {
             $gitDir = Split-Path $gitDir -Parent
         }
     } catch {
-        # Error handling - silent fail
+        Write-Host "Error: #"
     }
 
     if ($venv -ne "") {
