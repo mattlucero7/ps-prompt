@@ -12,44 +12,37 @@ function prompt {
     }
 
     if ($env:VIRTUAL_ENV) {
-        # Get the name of the virtual environment folder
         $venvName = Split-Path -Leaf $env:VIRTUAL_ENV
         $venv = "($venvName) "
     }
 
-    # Check if the current directory or any parent directory is a Git repository
-    $gitDir = $currentDirectory
-    while ($gitDir -ne (Get-Item $gitDir).Parent.FullName) {
-        if (Test-Path (Join-Path $gitDir ".git")) {
-            try {
-                # Get the current Git branch name
-                $branchName = git -C $gitDir rev-parse --abbrev-ref HEAD
-                $gitBranch = "($branchName) "
+    # Safely check for Git repository
+    try {
+        $gitDir = $currentDirectory
+        while ($gitDir -ne $null -and (Test-Path $gitDir) -and ($gitDir -ne (Split-Path $gitDir -Parent))) {
+            if (Test-Path (Join-Path $gitDir ".git")) {
+                try {
+                    $branchName = git -C $gitDir rev-parse --abbrev-ref HEAD
+                    $gitBranch = "($branchName) "
 
-                # Check Git status (more comprehensively)
-                $gitPorcelainStatus = git -C $gitDir status --porcelain
-                
-                # $null works for both empty string and null value!! not ""
-                if ($gitPorcelainStatus -eq $null) {
-                    # Repository is clean (no staged, unstaged, or untracked files)
-                    $gitStatus = "`e[1;32m✓`e[0m" # Green check for clean
+                    $gitPorcelainStatus = git -C $gitDir status --porcelain
+                    if ($gitPorcelainStatus -eq $null) {
+                        $gitStatus = "`e[1;32m✓`e[0m"
+                    } else {
+                        $gitStatus = "`e[1;33m✗`e[0m"
+                    }
                 }
-                else {
-                    # Repository has changes
-                    $gitStatus = "`e[1;33m✗`e[0m" # Yellow cross for dirty
+                catch {
+                    $gitBranch = "`e[1;31m[Git Error]`e[0m"
+                    $gitStatus = ""
                 }
+                break
             }
-            catch {
-                # Refined error message
-                $gitBranch = "`e[1;31m[Git Error]`e[0m"
-                $gitStatus = ""
-            }
-            break
+            $gitDir = Split-Path $gitDir -Parent
         }
-        $gitDir = (Get-Item $gitDir).Parent.FullName
+    } catch {
+        # Error handling - silent fail
     }
-
-    # ---- Display the prompt with details ----
 
     if ($venv -ne "") {
         Write-Host "venv " -NoNewline -ForegroundColor Magenta # in virtual env
@@ -66,5 +59,5 @@ function prompt {
         Write-Host "$gitStatus " -NoNewline -ForegroundColor Cyan
     }
 
-    return ""
+    return ""  # Return a space to ensure there's something after the prompt
 }
